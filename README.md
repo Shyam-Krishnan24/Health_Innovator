@@ -1,18 +1,18 @@
 Health Innovators – AI-Based IVR Healthcare Triage System
-📌 Project Overview
+ Project Overview
 
   Health Innovators is an AI-powered Interactive Voice Response (IVR) simulation system designed to efficiently triage healthcare requests.
 This project is temporarily implemented as a locally running service for development and testing purposes and does not operate through real phone calls.
 The system simulates IVR interactions via a local interface (CLI / local server) and classifies cases as Emergency or Non-Emergency, providing appropriate actions such as appointment booking or medical guidance.
 
-🎯 Objectives
+ Objectives
 
   --->Simulate healthcare IVR call triaging
   --->Prioritize emergency cases using AI logic
   --->Reduce manual workload through automation
   --->Validate decision-making flow in a local environment
 
-🛠️ System Features
+ System Features
 
   --->Locally simulated IVR interaction
   --->Emergency and non-emergency classification
@@ -21,15 +21,15 @@ The system simulates IVR interactions via a local interface (CLI / local server)
   --->Guided symptom and patient detail collection
   --->Fully automated decision flow (no real telephony)
 
-📞 Interaction Flow (Local IVR Simulation)
-1️⃣ System Start
+Interaction Flow (Local IVR Simulation)
+System Start
 
   1. Display a greeting message
   2. Prompt user options:
           --->Press 1 – Emergency
           --->Press 2 – Non-Emergency
 
-🚨 Emergency Flow (Option 1)
+ Emergency Flow (Option 1)
 
 The system performs the following steps:
   1. Collect patient issue (text or keypad-style input)
@@ -42,7 +42,7 @@ The system performs the following steps:
   6. Display and store the token for the patient
   7. End the session
 
-🩺 Non-Emergency Flow (Option 2)
+ Non-Emergency Flow (Option 2)
 
 The system collects:
 
@@ -58,7 +58,7 @@ The system collects:
       --->Press 3 – Pregnant
   6. Medication background details
 
-🤖 AI Decision Engine
+ AI Decision Engine
 
 The AI module analyzes all collected inputs and classifies the case as:
       --->Emergency
@@ -66,7 +66,7 @@ The AI module analyzes all collected inputs and classifies the case as:
 
 (This classification is based on predefined rules or AI logic implemented for local execution.)
 
-⚠️ If Classified as Emergency
+ If Classified as Emergency
 
   1. Clearly explain why the case is considered an emergency
   2. Provide options:
@@ -78,7 +78,7 @@ The AI module analyzes all collected inputs and classifies the case as:
       --->Confirm appointment
       --->End session
 
-✅ If Classified as Non-Emergency
+ If Classified as Non-Emergency
 
   1. Provide appropriate guidance or next steps
   2. Suggest self-care or follow-up recommendations
