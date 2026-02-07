@@ -2,12 +2,25 @@ import sqlite3
 import os
 
 def view_all_calls():
-    # Look for health.sqlite in current directory
-    db_path = "health.sqlite"
+    # Find health.sqlite - it's stored in the Frontend folder
+    # This works from any starting directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Check if we're in the root, look in Frontend folder
+    db_path = os.path.join(script_dir, "Front-End (IVR system)", "health.sqlite")
+    
+    # If not found and we're in Frontend, look in current directory
+    if not os.path.exists(db_path):
+        alt_path = os.path.join(script_dir, "health.sqlite")
+        if os.path.exists(alt_path):
+            db_path = alt_path
     
     if not os.path.exists(db_path):
-        print(f"Error: health.sqlite not found at {os.path.abspath(db_path)}")
-        print(f"Make sure you run the IVR app first to generate the database.")
+        print(f"Error: health.sqlite not found.")
+        print(f"Searched in:")
+        print(f"  - {os.path.join(script_dir, 'Front-End (IVR system)', 'health.sqlite')}")
+        print(f"  - {os.path.join(script_dir, 'health.sqlite')}")
+        print(f"\nMake sure you run the IVR app first: python \"Front-End (IVR system)/main.py\"")
         return
     
     conn = sqlite3.connect(db_path)

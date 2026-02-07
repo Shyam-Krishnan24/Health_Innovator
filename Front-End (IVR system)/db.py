@@ -1,4 +1,6 @@
 import traceback
+import os
+
 # Force SQLite fallback to avoid crashing on environments where mysql C-extension
 # causes access violations (can be enabled via env var later if needed).
 USE_SQLITE = True
@@ -6,9 +8,16 @@ USE_SQLITE = True
 import sqlite3
 
 
+def get_db_path():
+    """Get the database path - stored in the same directory as db.py"""
+    db_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(db_dir, "health.sqlite")
+
+
 def get_connection():
     # Always use sqlite for stability in the prototype environment
-    return sqlite3.connect("health.sqlite")
+    # Database stored in Frontend folder for consistency
+    return sqlite3.connect(get_db_path())
 
 
 def create_table():
